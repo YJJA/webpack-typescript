@@ -7,13 +7,15 @@ import Loading from '../../components/Loading'
 const Home = Loadable({
   loader: () => import(/* webpackChunkName: "Home" */'../Home'),
   loading: Loading,
-  modules: ['../Home']
+  modules: ['../Home'],
+  webpack: () => [require.resolveWeak('../Home')]
 })
 
 const NotFound = Loadable({
   loader: () => import(/* webpackChunkName: "NotFound" */'../NotFound'),
   loading: Loading,
-  modules: ['../NotFound']
+  modules: ['../NotFound'],
+  webpack: () => [require.resolveWeak('../NotFound')]
 })
 
 function App() {

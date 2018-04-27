@@ -27,11 +27,10 @@ module.exports = function webpackClientConfig(name, argv) {
       filename: `static/scripts/[name]${dev ? '' : '.[contenthash]'}.js`,
       chunkFilename: `static/scripts/[name]${dev ? '' : '.[contenthash]'}.js`
     },
-    optimization: dev ? {
+    optimization: dev ? undefined : {
       runtimeChunk: {
         name: 'manifest'
-      }
-    } : {
+      },
       minimizer: [
         new UglifyJsPlugin({
           uglifyOptions: {
