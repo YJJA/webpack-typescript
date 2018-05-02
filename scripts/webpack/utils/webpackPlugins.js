@@ -8,11 +8,21 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 // const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const {ReactLoadablePlugin} = require('react-loadable/webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const config = require('../../config')
 
+console.log(require.resolve('../../../tsconfig.json'))
+
 module.exports = function (dev, name) {
   let plugins = [
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: require.resolve('../../../tsconfig.json')
+    }),
+    new TsconfigPathsPlugin({
+      configFile: require.resolve('../../../tsconfig.json')
+    }),
     new HtmlWebpackPlugin({
       filename: dev ? 'view/index.html' : './index.html',
       template: path.resolve(`./packages/${name}/index.html`)

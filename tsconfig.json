@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
+    "alwaysStrict":true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "strictNullChecks": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
     "jsx": "react",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "module": "esnext",
-    "target": "es5",
-    "lib": ["es6", "dom"],
+    "target": "es6",
     "sourceMap": true,
-    "allowJs": true,
+    "lib": ["dom", "es6"]
   },
   "include": [
     "packages/**/*"

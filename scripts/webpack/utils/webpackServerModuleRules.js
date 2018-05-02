@@ -15,9 +15,40 @@ module.exports = function webpackServerModuleRules(dev, name) {
     },
     {
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
       include: [path.resolve('./packages')],
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            cacheDirectory: false,
+            presets: [
+              [require.resolve('@babel/preset-env'), {
+                targets: {
+                  node: 'current'
+                }
+              }]
+            ],
+            plugins: [
+              [require.resolve('babel-plugin-styled-components'), {
+                ssr: true
+              }],
+              require.resolve('@babel/plugin-transform-runtime'),
+              require.resolve('@babel/plugin-proposal-object-rest-spread'),
+              require.resolve('@babel/plugin-proposal-class-properties'),
+              require.resolve('@babel/plugin-syntax-dynamic-import'),
+              require.resolve('react-hot-loader/babel')
+            ]
+          }
+        },
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
+      ]
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

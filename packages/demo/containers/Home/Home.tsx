@@ -18,6 +18,7 @@ class Home extends React.Component<any, any> {
     return (
       <div>
         <Title>{this.state.title}</Title>
+        <p>this is context</p>
       </div>
     )
   }

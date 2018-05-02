@@ -1,6 +1,7 @@
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = function (dev, name) {
   return [
@@ -16,9 +17,41 @@ module.exports = function (dev, name) {
     },
     {
       test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
       include: [path.resolve('./packages')],
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            cacheDirectory: false,
+            presets: [
+              [require.resolve('@babel/preset-env'), {
+                targets: {
+                  browsers: ['> 1%', 'last 4 versions', 'ie >= 9', 'Firefox ESR']
+                }
+              }]
+            ],
+            plugins: [
+              [require.resolve('babel-plugin-styled-components'), {
+                ssr: true
+              }],
+              require.resolve('@babel/plugin-transform-runtime'),
+              require.resolve('@babel/plugin-proposal-object-rest-spread'),
+              require.resolve('@babel/plugin-proposal-class-properties'),
+              require.resolve('@babel/plugin-syntax-dynamic-import'),
+              require.resolve('react-loadable/babel'),
+              require.resolve('react-hot-loader/babel')
+            ]
+          }
+        },
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
+      ]
     },
     {
       test: /\.css$/,
