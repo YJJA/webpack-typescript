@@ -4,19 +4,19 @@ import * as path from 'path'
 import * as Koa from 'koa'
 
 import * as React from 'react'
-import * as Loadable from 'react-loadable'
 import {renderToString} from 'react-dom/server'
 import {Provider} from 'react-redux'
 import {ConnectedRouter as Router} from 'react-router-redux'
 import createHistory from 'history/createMemoryHistory'
-import {getBundles} from 'react-loadable/webpack'
 import {ServerStyleSheet, StyleSheetManager} from 'styled-components'
+import {AsyncComponentProvider, createAsyncContext} from 'react-async-component'
+import asyncBootstrapper from 'react-async-bootstrapper'
+import serialize from 'serialize-javascript'
+
 import configureStore from '../redux/store'
 import App from '../containers/App'
 
 export default async function renderer(ctx: Koa.Context) {
-  await Loadable.preloadAll()
-
   const history = createHistory({
     initialEntries: [ctx.request.url]
   })
@@ -26,33 +26,30 @@ export default async function renderer(ctx: Koa.Context) {
   const indexPath = path.resolve(__dirname, `./index.html`)
   let content = await fse.readFile(indexPath, 'utf8')
 
-  const statsPath = path.resolve(__dirname, './react-loadable.json')
-  const stats = await fse.readJSON(statsPath)
-
-  const modules: string[] = []
+  const asyncContext = createAsyncContext()
   const sheet = new ServerStyleSheet()
 
-  const html = renderToString(
-    <StyleSheetManager sheet={sheet.instance}>
-      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+  const app = (
+    <AsyncComponentProvider asyncContext={asyncContext}>
+      <StyleSheetManager sheet={sheet.instance}>
         <Provider store={store}>
           <Router history={history}>
             <App/>
           </Router>
         </Provider>
-      </Loadable.Capture>
-    </StyleSheetManager>
+      </StyleSheetManager>
+    </AsyncComponentProvider>
   )
 
+  await asyncBootstrapper(app)
+  const html = renderToString(app)
   const styleTags = sheet.getStyleTags()
-  const bundles = getBundles(stats, modules)
-  const styles = bundles.filter(bundle => bundle.file.endsWith('.css'))
-  const scripts = bundles.filter(bundle => bundle.file.endsWith('.js'))
+  const asyncState = asyncContext.getState()
 
-  // 填充页面
+  // hmtl
   content = content.replace('<!--html-->', html)
 
-  // 填充数据
+  // local data
   if (typeof ctx.localeData === 'object') {
     const localeScripts = Object.keys(ctx.localeData).map(key => {
       return `window.${key}=${JSON.stringify(ctx.localeData[key])}`
@@ -60,21 +57,11 @@ export default async function renderer(ctx: Koa.Context) {
     content = content.replace(/(<\/head>)/, `<script>${localeScripts}</script>$1`)
   }
 
-  // 样式引用
-  content = content.replace(/(<\/head>)/, `${styles.map(bundle => {
-    return `<link href="/${bundle.file}" rel="stylesheet"/>`
-  }).join('\n')}$1`)
+  // async state
+  content = content.replace(/(<\/head>)/, `<script>window.ASYNC_COMPONENTS_STATE=${serialize(asyncState)}</script>$1`)
 
-  // styled 样式
+  // styled
   content = content.replace(/(<\/head>)/, `${styleTags}$1`)
-
-  // 脚本引用
-  content = content.replace(/(<\/body>)/, `${scripts.map(bundle => {
-    return `<script src="/${bundle.file}"></script>`
-  }).join('\n')}$1`)
-
-  // bootstrap
-  content = content.replace(/(<\/body>)/, `<script>window.bootstrap()</script>$1`)
 
   ctx.body = content
 }

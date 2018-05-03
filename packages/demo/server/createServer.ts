@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as http from 'http'
+import http from 'http'
 
 // createHttp
 export default function createServer(port: any, requestHandler: any) {

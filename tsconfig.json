@@ -12,7 +12,8 @@
     "module": "esnext",
     "target": "es6",
     "sourceMap": true,
-    "lib": ["dom", "es6"]
+    "lib": ["dom", "es6"],
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "packages/**/*"

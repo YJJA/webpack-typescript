@@ -1,4 +1,4 @@
-import * as Redis from 'ioredis'
+import Redis from 'ioredis'
 import {EventEmitter} from 'events'
 
 interface RedisOptions extends Redis.RedisOptions {

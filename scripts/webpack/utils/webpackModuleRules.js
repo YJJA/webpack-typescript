@@ -48,7 +48,8 @@ module.exports = function (dev, name) {
         {
           loader: 'ts-loader',
           options: {
-            transpileOnly: true
+            transpileOnly: true,
+            configFile: path.resolve(`./tsconfig.json`)
           }
         }
       ]

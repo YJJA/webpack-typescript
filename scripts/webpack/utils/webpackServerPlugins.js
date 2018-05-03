@@ -8,9 +8,6 @@ module.exports = function webpackServerPlugins(dev, name) {
     new ForkTsCheckerWebpackPlugin({
       tsconfig: require.resolve('../../../tsconfig.json')
     }),
-    new TsconfigPathsPlugin({
-      configFile: require.resolve('../../../tsconfig.json')
-    }),
     new webpack.DefinePlugin({
       'process.env.RUNTIME_ENV': JSON.stringify('server'),
       'process.env.NODE_ENV': JSON.stringify(dev ? 'development' : 'production')

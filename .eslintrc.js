@@ -17,6 +17,7 @@ module.exports = {
     'no-throw-literal': 'off',
     'linebreak-style': 'off',
     'no-useless-call': 'off',
-    'standard/no-callback-literal': 'off'
+    'standard/no-callback-literal': 'off',
+    'space-infix-ops': 'off'
   }
 }

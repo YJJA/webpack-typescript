@@ -18,9 +18,13 @@ module.exports = function webpackClientConfig(name, argv) {
   return {
     mode: dev ? 'development' : 'production',
     entry: dev ? [
+      '@babel/polyfill',
       'webpack-hot-middleware/client?reload=true',
       path.resolve(`./packages/${name}/client`)
-    ] : path.resolve(`./packages/${name}/client`),
+    ] : [
+      '@babel/polyfill',
+      path.resolve(`./packages/${name}/client`)
+    ],
     output: {
       path: path.resolve(config.dist, name),
       publicPath: '/',

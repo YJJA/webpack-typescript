@@ -4,8 +4,9 @@ import Title from '../../components/Title'
 
 class Home extends React.Component<any, any> {
   state = {
-    title: 'this is Home Page!',
-    visible: false
+    title: 'this is HomePage!',
+    visible: false,
+    abc: true
   }
 
   onVisible = () : void => {
