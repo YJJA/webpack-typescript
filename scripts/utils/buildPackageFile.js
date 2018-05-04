@@ -5,7 +5,7 @@ const config = require('../config')
 module.exports = function(names, argv) {
   const promises = names.map(async (name) => {
     const packageJsonPath = path.resolve(`packages/${name}/package.json`)
-    const distPackageJsonPath = config.getDistPath(name, true, 'package.json')
+    const distPackageJsonPath = config.getDistPath(name, false, 'package.json')
     return fse.copy(packageJsonPath, distPackageJsonPath)
   })
   const rootPackageJsonPath = path.resolve(`package.json`)
