@@ -2,11 +2,15 @@ import * as React from 'react'
 
 import Title from '../../components/Title'
 
-class Home extends React.Component<any, any> {
+type State = {
+  title: string,
+  visible: boolean
+}
+
+class Home extends React.Component<any, State> {
   state = {
     title: 'this is HomePage!',
-    visible: false,
-    abc: true
+    visible: false
   }
 
   onVisible = () : void => {

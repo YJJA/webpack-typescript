@@ -15,7 +15,7 @@ const config = require('../../config')
 module.exports = function (dev, name) {
   let plugins = [
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: require.resolve('../../../tsconfig.json')
+      tsconfig: path.resolve('./tsconfig.json')
     }),
     new HtmlWebpackPlugin({
       filename: dev ? 'view/index.html' : './index.html',
@@ -38,7 +38,7 @@ module.exports = function (dev, name) {
       paths: true
     }),
     new ReactLoadablePlugin({
-      filename: `${dev ? config.temp : config.dist}/${name}/react-loadable.json`
+      filename: config.getDistPath(name, dev, 'react-loadable.json')
     }),
     new MiniCssExtractPlugin({
       filename: `static/styles/[name]${dev ? '' : '.[contenthash]'}` + '.css'

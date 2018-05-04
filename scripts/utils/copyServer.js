@@ -27,8 +27,7 @@ const copyServerCommon = (dist) => {
 let isCommonCopied = false
 module.exports = async (name, argv) => {
   const dev = process.env.NODE_ENV === 'development'
-  const dist = dev ? config.temp : config.dist
-  const serverPath = path.resolve(dist, `./${name}/index.js`)
+  const serverPath = config.getDistPath(name, dev, 'index.js')
   if (!isCommonCopied) {
     isCommonCopied = true
     await copyServerCommon(dist)

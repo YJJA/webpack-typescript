@@ -26,7 +26,7 @@ module.exports = function webpackClientConfig(name, argv) {
       path.resolve(`./packages/${name}/client`)
     ],
     output: {
-      path: path.resolve(config.dist, name),
+      path: config.getDistPath(name, dev),
       publicPath: '/',
       filename: `static/scripts/[name].js`,
       chunkFilename: `static/scripts/[name].js`
@@ -58,7 +58,8 @@ module.exports = function webpackClientConfig(name, argv) {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       modules: [
         path.resolve('./packages'),
-        path.resolve('./node_modules')
+        path.resolve('./node_modules'),
+        path.resolve(`./packages/${name}/node_modules`)
       ]
     },
     module: {

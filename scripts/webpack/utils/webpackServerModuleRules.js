@@ -17,39 +17,30 @@ module.exports = function webpackServerModuleRules(dev, name) {
       test: /\.tsx?$/,
       include: [path.resolve('./packages')],
       exclude: /node_modules/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            cacheDirectory: false,
-            presets: [
-              [require.resolve('@babel/preset-env'), {
-                targets: {
-                  node: 'current'
-                }
-              }]
-            ],
-            plugins: [
-              [require.resolve('babel-plugin-styled-components'), {
-                ssr: true
-              }],
-              require.resolve('@babel/plugin-transform-runtime'),
-              require.resolve('@babel/plugin-proposal-object-rest-spread'),
-              require.resolve('@babel/plugin-proposal-class-properties'),
-              require.resolve('@babel/plugin-syntax-dynamic-import'),
-              require.resolve('react-hot-loader/babel')
-            ]
-          }
-        },
-        {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-            configFile: path.resolve(`./tsconfig.json`)
-          }
-        }
-      ]
+      loader: 'babel-loader',
+      options: {
+        babelrc: false,
+        cacheDirectory: false,
+        presets: [
+          [require.resolve('@babel/preset-env'), {
+            targets: {
+              node: 'current'
+            }
+          }],
+          [require.resolve('@babel/preset-react')],
+          [require.resolve('@babel/preset-typescript')]
+        ],
+        plugins: [
+          [require.resolve('babel-plugin-styled-components'), {
+            ssr: true
+          }],
+          require.resolve('@babel/plugin-transform-runtime'),
+          require.resolve('@babel/plugin-proposal-object-rest-spread'),
+          require.resolve('@babel/plugin-proposal-class-properties'),
+          require.resolve('@babel/plugin-syntax-dynamic-import'),
+          require.resolve('react-hot-loader/babel')
+        ]
+      }
     },
     {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

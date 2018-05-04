@@ -66,6 +66,13 @@
     "@babel/helper-explode-assignable-expression" "7.0.0-beta.46"
     "@babel/types" "7.0.0-beta.46"
 
+"@babel/helper-builder-react-jsx@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/helper-builder-react-jsx/download/@babel/helper-builder-react-jsx-7.0.0-beta.46.tgz#d399c1892f48bbe68ce6ccca14b127b00cbc656f"
+  dependencies:
+    "@babel/types" "7.0.0-beta.46"
+    esutils "^2.0.0"
+
 "@babel/helper-call-delegate@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "http://registry.npm.taobao.org/@babel/helper-call-delegate/download/@babel/helper-call-delegate-7.0.0-beta.46.tgz#a9e8b46cece47726308f015ce979293ef3d36ab7"
@@ -264,6 +271,12 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.46"
 
+"@babel/plugin-syntax-jsx@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-syntax-jsx/download/@babel/plugin-syntax-jsx-7.0.0-beta.46.tgz#ed2e8a43716e7904ae33dca71d5f2b436f0f25e8"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+
 "@babel/plugin-syntax-object-rest-spread@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "http://registry.npm.taobao.org/@babel/plugin-syntax-object-rest-spread/download/@babel/plugin-syntax-object-rest-spread-7.0.0-beta.46.tgz#03d46637f549757b2d6877b6449901698059d7d8"
@@ -273,6 +286,12 @@
 "@babel/plugin-syntax-optional-catch-binding@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "http://registry.npm.taobao.org/@babel/plugin-syntax-optional-catch-binding/download/@babel/plugin-syntax-optional-catch-binding-7.0.0-beta.46.tgz#701ba500cc154dd87c4d16a41fa858e9ffc6db89"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+
+"@babel/plugin-syntax-typescript@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-syntax-typescript/download/@babel/plugin-syntax-typescript-7.0.0-beta.46.tgz#2a9e0e1f3bb3bd918571c5ee4db97bb2b00e8642"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.46"
 
@@ -418,6 +437,34 @@
     "@babel/helper-get-function-arity" "7.0.0-beta.46"
     "@babel/helper-plugin-utils" "7.0.0-beta.46"
 
+"@babel/plugin-transform-react-display-name@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-transform-react-display-name/download/@babel/plugin-transform-react-display-name-7.0.0-beta.46.tgz#2ad4a6c63ff67cb90f3199ff41061bcd7b6f5e7c"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+
+"@babel/plugin-transform-react-jsx-self@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-transform-react-jsx-self/download/@babel/plugin-transform-react-jsx-self-7.0.0-beta.46.tgz#0c3d89727f5fadc87294ca58463b392466b5906e"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-syntax-jsx" "7.0.0-beta.46"
+
+"@babel/plugin-transform-react-jsx-source@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-transform-react-jsx-source/download/@babel/plugin-transform-react-jsx-source-7.0.0-beta.46.tgz#5777f7bbfb6a13417896c5294d64aa5fc593f586"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-syntax-jsx" "7.0.0-beta.46"
+
+"@babel/plugin-transform-react-jsx@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-transform-react-jsx/download/@babel/plugin-transform-react-jsx-7.0.0-beta.46.tgz#9aa0c491ced30a0d1a8414da2d45462c66912d1e"
+  dependencies:
+    "@babel/helper-builder-react-jsx" "7.0.0-beta.46"
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-syntax-jsx" "7.0.0-beta.46"
+
 "@babel/plugin-transform-regenerator@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "http://registry.npm.taobao.org/@babel/plugin-transform-regenerator/download/@babel/plugin-transform-regenerator-7.0.0-beta.46.tgz#875ceb5b37ec0e898c23b60af760715d9d462b4f"
@@ -462,6 +509,13 @@
   resolved "http://registry.npm.taobao.org/@babel/plugin-transform-typeof-symbol/download/@babel/plugin-transform-typeof-symbol-7.0.0-beta.46.tgz#643529184cbb07199237c94537c89ea9a721fa0a"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.46"
+
+"@babel/plugin-transform-typescript@7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/plugin-transform-typescript/download/@babel/plugin-transform-typescript-7.0.0-beta.46.tgz#bcb57558c87de7ae2f4f3a36322934c799bf3774"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-syntax-typescript" "7.0.0-beta.46"
 
 "@babel/plugin-transform-unicode-regex@7.0.0-beta.46":
   version "7.0.0-beta.46"
@@ -521,6 +575,24 @@
     browserslist "^3.0.0"
     invariant "^2.2.2"
     semver "^5.3.0"
+
+"@babel/preset-react@^7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/preset-react/download/@babel/preset-react-7.0.0-beta.46.tgz#f2c7f05ce0c9f1bf25516f1acaf00ca0dfc1bfa5"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-syntax-jsx" "7.0.0-beta.46"
+    "@babel/plugin-transform-react-display-name" "7.0.0-beta.46"
+    "@babel/plugin-transform-react-jsx" "7.0.0-beta.46"
+    "@babel/plugin-transform-react-jsx-self" "7.0.0-beta.46"
+    "@babel/plugin-transform-react-jsx-source" "7.0.0-beta.46"
+
+"@babel/preset-typescript@^7.0.0-beta.46":
+  version "7.0.0-beta.46"
+  resolved "http://registry.npm.taobao.org/@babel/preset-typescript/download/@babel/preset-typescript-7.0.0-beta.46.tgz#ab14898e504c7f172cd0fbc03491f6a5685d8638"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.46"
+    "@babel/plugin-transform-typescript" "7.0.0-beta.46"
 
 "@babel/runtime@^7.0.0-beta.46":
   version "7.0.0-beta.46"
@@ -2065,9 +2137,9 @@ commander@2.15.x, commander@^2.13.0, commander@^2.2.0, commander@^2.8.1, command
   version "2.15.1"
   resolved "http://registry.npm.taobao.org/commander/download/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
 
-commander@~2.14.1:
-  version "2.14.1"
-  resolved "http://registry.npm.taobao.org/commander/download/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
+commander@~2.13.0:
+  version "2.13.0"
+  resolved "http://registry.npm.taobao.org/commander/download/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -3186,7 +3258,7 @@ estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "http://registry.npm.taobao.org/estraverse/download/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
 
-esutils@^2.0.2:
+esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
   resolved "http://registry.npm.taobao.org/esutils/download/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
@@ -4717,8 +4789,8 @@ isstream@~0.1.2:
   resolved "http://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
 istanbul-api@^1.1.14:
-  version "1.3.2"
-  resolved "http://registry.npm.taobao.org/istanbul-api/download/istanbul-api-1.3.2.tgz#b2cfe6d15ae6a28ee282e7a823b8e9faa235e6cf"
+  version "1.3.1"
+  resolved "http://registry.npm.taobao.org/istanbul-api/download/istanbul-api-1.3.1.tgz#4c3b05d18c0016d1022e079b98dc82c40f488954"
   dependencies:
     async "^2.1.4"
     compare-versions "^3.1.0"
@@ -4728,12 +4800,12 @@ istanbul-api@^1.1.14:
     istanbul-lib-instrument "^1.10.1"
     istanbul-lib-report "^1.1.4"
     istanbul-lib-source-maps "^1.2.4"
-    istanbul-reports "^1.4.0"
+    istanbul-reports "^1.3.0"
     js-yaml "^3.7.0"
     mkdirp "^0.5.1"
     once "^1.4.0"
 
-istanbul-lib-coverage@^1.1.1, istanbul-lib-coverage@^1.2.0:
+istanbul-lib-coverage@^1.1.1, istanbul-lib-coverage@^1.1.2, istanbul-lib-coverage@^1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/istanbul-lib-coverage/download/istanbul-lib-coverage-1.2.0.tgz#f7d8f2e42b97e37fe796114cb0f9d68b5e3a4341"
 
@@ -4764,7 +4836,17 @@ istanbul-lib-report@^1.1.4:
     path-parse "^1.0.5"
     supports-color "^3.1.2"
 
-istanbul-lib-source-maps@^1.2.1, istanbul-lib-source-maps@^1.2.4:
+istanbul-lib-source-maps@^1.2.1:
+  version "1.2.3"
+  resolved "http://registry.npm.taobao.org/istanbul-lib-source-maps/download/istanbul-lib-source-maps-1.2.3.tgz#20fb54b14e14b3fb6edb6aca3571fd2143db44e6"
+  dependencies:
+    debug "^3.1.0"
+    istanbul-lib-coverage "^1.1.2"
+    mkdirp "^0.5.1"
+    rimraf "^2.6.1"
+    source-map "^0.5.3"
+
+istanbul-lib-source-maps@^1.2.4:
   version "1.2.4"
   resolved "http://registry.npm.taobao.org/istanbul-lib-source-maps/download/istanbul-lib-source-maps-1.2.4.tgz#cc7ccad61629f4efff8e2f78adb8c522c9976ec7"
   dependencies:
@@ -4774,9 +4856,9 @@ istanbul-lib-source-maps@^1.2.1, istanbul-lib-source-maps@^1.2.4:
     rimraf "^2.6.1"
     source-map "^0.5.3"
 
-istanbul-reports@^1.4.0:
-  version "1.4.0"
-  resolved "http://registry.npm.taobao.org/istanbul-reports/download/istanbul-reports-1.4.0.tgz#3d7b44b912ecbe7652a603662b962120739646a1"
+istanbul-reports@^1.3.0:
+  version "1.3.0"
+  resolved "http://registry.npm.taobao.org/istanbul-reports/download/istanbul-reports-1.3.0.tgz#2f322e81e1d9520767597dca3c20a0cce89a3554"
   dependencies:
     handlebars "^4.0.3"
 
@@ -9064,10 +9146,10 @@ ua-parser-js@^0.7.9:
   resolved "http://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
 
 uglify-es@^3.3.4:
-  version "3.3.10"
-  resolved "http://registry.npm.taobao.org/uglify-es/download/uglify-es-3.3.10.tgz#8b0b7992cebe20edc26de1bf325cef797b8f3fa5"
+  version "3.3.9"
+  resolved "http://registry.npm.taobao.org/uglify-es/download/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
   dependencies:
-    commander "~2.14.1"
+    commander "~2.13.0"
     source-map "~0.6.1"
 
 uglify-js@3.3.x:
