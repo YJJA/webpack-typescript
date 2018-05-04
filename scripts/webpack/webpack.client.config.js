@@ -31,29 +31,29 @@ module.exports = function webpackClientConfig(name, argv) {
       filename: `static/scripts/[name].js`,
       chunkFilename: `static/scripts/[name].js`
     },
-    // optimization: dev ? undefined : {
-    //   runtimeChunk: {
-    //     name: 'manifest'
-    //   },
-    //   minimizer: [
-    //     new UglifyJsPlugin({
-    //       uglifyOptions: {
-    //         compress: {
-    //           drop_console: true
-    //         }
-    //       },
-    //       cache: true,
-    //       parallel: true,
-    //       sourceMap: true // set to true if you want JS source maps
-    //     }),
-    //     new OptimizeCSSAssetsPlugin({
-    //       cssProcessorOptions: {
-    //         safe: true,
-    //         discardComments: {removeAll: true}
-    //       }
-    //     })
-    //   ]
-    // },
+    optimization: dev ? undefined : {
+      runtimeChunk: {
+        name: 'manifest'
+      },
+      minimizer: [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              drop_console: true
+            }
+          },
+          cache: true,
+          parallel: true,
+          sourceMap: true // set to true if you want JS source maps
+        }),
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorOptions: {
+            safe: true,
+            discardComments: {removeAll: true}
+          }
+        })
+      ]
+    },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
       modules: [
